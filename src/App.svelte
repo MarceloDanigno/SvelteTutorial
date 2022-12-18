@@ -1,45 +1,42 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import Counter from './lib/Counter.svelte'
+  let emailLogin, passwordLogin;
+  // Define uma função de POST
+
+
+  
+  async function postData(url = '', data = {}) {
+      //  Função simulando funcionamento
+      return new Promise((resolve) => {resolve("Usuário Cadastrado com Sucesso.")})
+      //  Exemplo de função real:
+      //  const response = await fetch(url, {
+      //    method: 'POST',
+      //    headers: {
+      //      'Content-Type': 'application/json'
+      //    },
+      //    body: JSON.stringify(data)
+      //  });
+      //  return response.json();
+  }
+
+  // Define uma função que será ativada no click
+  async function doLogin() {
+    console.log(emailLogin, passwordLogin);
+    postData('HTTP://localhost:3001/login', { email: emailLogin, password: passwordLogin })
+      .then((data) => {
+        console.log(data);
+      });
+  }
 </script>
 
 <main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer"> 
-      <img src="/vite.svg" class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer"> 
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+  <!-- Form de login-->
+  <h1>Register</h1>
+  <form class="form-group">
+      <input bind:value={emailLogin} type="email" placeholder="Email">
+      <input bind:value={passwordLogin} type="password" placeholder="Password">
+      <button type="submit" class="btn btn-primary" on:click={doLogin}> Submit </button>
+  </form>
 </main>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
 </style>

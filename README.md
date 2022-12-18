@@ -10,7 +10,7 @@ Na branch master temos o templete Svelte do Vite não alterado.
 
 ## CRUD
 
-Na branch CRUD temos um exemplo de como criar um form de login e tratar respostas de um servidor.
+Na branch CRUD temos um exemplo de como criar um form de registro e tratar respostas de um servidor.
 
 ## ...
 ...
