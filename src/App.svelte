@@ -1,42 +1,32 @@
 <script>
-  let emailLogin, passwordLogin;
-  // Define uma função de POST
+let contentKey = true;
 
+function toggle() {
+  contentKey = !contentKey;
+}
 
-  
-  async function postData(url = '', data = {}) {
-      //  Função simulando funcionamento
-      return new Promise((resolve) => {resolve("Usuário Cadastrado com Sucesso.")})
-      //  Exemplo de função real:
-      //  const response = await fetch(url, {
-      //    method: 'POST',
-      //    headers: {
-      //      'Content-Type': 'application/json'
-      //    },
-      //    body: JSON.stringify(data)
-      //  });
-      //  return response.json();
-  }
+let content = `<h2> Esse conteudo foi adicionado!</h2>
+               <div class="inserted"><p>E esse</p><p>também!</p></div>`;
 
-  // Define uma função que será ativada no click
-  async function doLogin() {
-    console.log(emailLogin, passwordLogin);
-    postData('HTTP://localhost:3001/login', { email: emailLogin, password: passwordLogin })
-      .then((data) => {
-        console.log(data);
-      });
-  }
+let content2 = `<h1 class="inserted"> Sou um componente diferente!</h1>`;
+
 </script>
 
 <main>
   <!-- Form de login-->
-  <h1>Register</h1>
-  <form class="form-group">
-      <input bind:value={emailLogin} type="email" placeholder="Email">
-      <input bind:value={passwordLogin} type="password" placeholder="Password">
-      <button type="submit" class="btn btn-primary" on:click={doLogin}> Submit </button>
-  </form>
+  {#if contentKey}
+    <div class="container">{@html content}</div>
+  {:else}
+    <div>{@html content2}</div>
+  {/if}
+  <button on:click={toggle}>
+    Trocar Elemento
+  </button>
 </main>
 
 <style>
+.container :global(.inserted) {
+  color: red;
+  font-weight: 600;
+}
 </style>
