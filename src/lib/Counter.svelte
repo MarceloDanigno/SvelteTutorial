@@ -1,7 +1,8 @@
 <script>
-  let count = 0
+  export let count = 0
+  export let incrementValue = 1
   const increment = () => {
-    count += 1
+    count += incrementValue
   }
 </script>
 
