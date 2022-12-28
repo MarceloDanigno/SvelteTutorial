@@ -1,11 +1,11 @@
 <script>
-  export let count = 0
+	import { count } from './stores.js';
   export let incrementValue = 1
   const increment = () => {
-    count += incrementValue
+    count.update(n => n + incrementValue);
   }
 </script>
 
 <button on:click={increment}>
-  count is {count}
+  +
 </button>

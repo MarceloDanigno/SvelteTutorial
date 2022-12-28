@@ -1,26 +1,24 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
+  import { count } from './lib/stores.js';
   import Counter from './lib/Counter.svelte'
+  import Multiply from './lib/Multiply.svelte'
+
+  let countValue;
+
+  count.subscribe(value => {
+    countValue = value;
+  });
 </script>
 
 <main>
-  <h1>Props!</h1>
+  <h1>Valor atual: {countValue}!</h1>
 
-  <h2> Componente normal: </h2>
   <div class="card">
-    <Counter />
+    <Counter incrementValue={3}/>
   </div>
-
-  <h2> Definindo posição inicial: </h2>
   <div class="card">
-    <Counter count={100}/>
+    <Multiply multiplyValue={3}/>
   </div>
-
-  <h2> Definindo posição inicial e incremento: </h2>
-  <div class="card">
-    <Counter count={3} incrementValue={3}/>
-  </div>
-
 </main>
 
 <style>
