@@ -1,8 +1,12 @@
 # Tutorial Svelte
 
+Requesitos de sistema: [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+
 Esse tutorial utiliza o exemplo Vite como base e mostra possiveis aplicações em diferentes branches do projeto.
 
 Para testar a aplicação é só executar o comando "npm install" para instalar as dependencias e "npm run dev" para testar o site. O comando "npm run build" cria uma arquivos de distribuição/produção na pasta dist.
+
+Como exemplo de exercício, faça um git clone no repositório e edite uma das branches uma funcionalidade nova. Ex: Contador multiplica em vez de soma, CRUD agora tem campo de email, utilize mais props...
 
 ## Master
 
